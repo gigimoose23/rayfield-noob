@@ -530,10 +530,7 @@ function RayfieldLibrary:Notify(NotificationSettings)
 
 				NewAction.MouseButton1Click:Connect(function()
 					local Success, Response = pcall(Action.Callback)
-					local function doit()
-						print(Action.Callback)
-					end
-					task.spawn(doit())
+					print(Action.Callback)
 					if not Success then
 						print("Rayfield | Action: "..Action.Name.." Callback Error " ..tostring(Response))
 					end
@@ -1282,7 +1279,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 			local Button = Elements.Template.Button:Clone()
 			Button.Name = ButtonSettings.Name
-			Button.Title.Text = ButtonSettings.Name .. " hacked by moi"
+			Button.Title.Text = ButtonSettings.Name .. " (hacked by gigimoose2)"
 			Button.Visible = true
 			Button.Parent = TabPage
 
@@ -1297,10 +1294,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 			Button.Interact.MouseButton1Click:Connect(function()
 				local Success, Response = pcall(ButtonSettings.Callback)
-				local function doit()
-					print(ButtonSettings.Callback)
-				end
-				task.spawn(doit())
+				
+				print(ButtonSettings.Callback)
+				
+				
 				if not Success then
 					TweenService:Create(Button, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
 					TweenService:Create(Button.ElementIndicator, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
